@@ -25,6 +25,8 @@ Building:
 
 Using MarkVSharp:
 
+  Mark V Sharp has been tested with text novels hundreds of pages in size as input.
+
   Add a reference to MarkVSharp.dll
   The only namespace needed is MarkVSharp 
   
