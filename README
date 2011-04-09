@@ -1,0 +1,65 @@
+MarkVSharp is a .Net library to generate random text that looks grammatically correct.
+It is inspired by the original Mark V Shaney algorithm:
+
+http://en.wikipedia.org/wiki/Mark_V_Shaney
+
+This is done by by parsing a large input text document to create base word snippets that are related.
+These base word snippets are randomly selected to generate correct looking text while attempting to preserve
+the original relationship.
+
+All consecutive words represent states in a Markov chain.  The decision of what word to generate next is
+made by the prior two words.
+
+
+Requirements:
+
+  Mono version 2.8 or greater
+  or
+  .Net version 3.5
+
+Building:
+
+  On Windows open and build MarkVSharp.sln using VS 2008 or SharpDevelop
+  On Linux open and build Mono.MarkVSharp.sln using MonoDevelop 2.4 or greater
+  All unit tests should pass after building
+
+Using MarkVSharp:
+
+  Add a reference to MarkVSharp.dll
+  The only namespace needed is MarkVSharp 
+  
+  A text file with only plain text data is needed.  Good files that can be used are books 
+  found at Project Gutenberg: 
+  http://www.gutenberg.org/wiki/Main_Page
+
+  Let us assume we have a book in plain text called book.txt.
+
+  Create Generator:
+  GeneratorFacade gen = new GeneratorFacade(new MarkovGenerator(System.IO.File.ReadAllText("book.txt")));
+
+
+  We can generate the following:
+
+  Words -- Lower case words
+  gen.GenerateWords(6) ; //generate 6 words
+
+  Sentence -- One sentence
+  gen.GenerateSentence(3) ; //generate a sentence with a minimum size of 3
+
+  Title -- Upper case words
+  gen.GenerateTitle(6) ; //generate 6 words in title format
+
+  Paragraphs -- Multiple paragraphs with appropriate indentation
+  gen.GenerateParagraphs(4); //generate 4 paragraphs with random number of sentences
+
+TODO:
+
+  The following is planned for the future:
+  -- REST service hoster for MarkVSharp in order to use it from other languages
+  -- More fine grained control over the various generation methods
+  -- Additional convenience methods to better filter input text
+   
+LICENSE:
+
+  BSD 2-clause license
+  See LICENSE file

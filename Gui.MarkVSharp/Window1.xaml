@@ -1,0 +1,45 @@
+﻿<Window x:Class="Gui.MarkVSharp.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MarkVSharp" Height="522" Width="574">
+    <Grid>
+        <Button Height="23" HorizontalAlignment="Left" Margin="22,19.52,0,0" Name="buttonBrowse" VerticalAlignment="Top" Width="75" Click="buttonBrowse_Click">Browse</Button>
+        <GroupBox Header="Mode" Height="80" Margin="21,64,29,0" Name="groupBox1" VerticalAlignment="Top">
+            <Grid>
+                <RadioButton HorizontalAlignment="Left" Margin="16,20,0,21" Name="radioWords" Width="62" GroupName="radioGroupMode" Checked="radioWords_Checked">Words</RadioButton>
+                <RadioButton Margin="84,20,0,21" Name="radioSentence" IsChecked="True" HorizontalAlignment="Left" Width="72" GroupName="radioGroupMode" Checked="radioSentence_Checked">Sentence</RadioButton>
+                <RadioButton Margin="170,20,0,21" Name="radioTitle" GroupName="radioGroupMode" HorizontalAlignment="Left" Width="49" Checked="radioTitle_Checked">Title</RadioButton>
+                <RadioButton Margin="241,20,157,21" Name="radioParagraphs" GroupName="radioGroupMode" Checked="radioParagraphs_Checked">Paragraphs</RadioButton>
+                <Button HorizontalAlignment="Right" Margin="0,16.46,14,17.54" Name="buttonGenerate" Width="75" IsEnabled="False" Click="buttonGenerate_Click">Generate</Button>
+            </Grid>
+        </GroupBox>
+        <TextBox Margin="12,294,12,12" Name="textOutput" IsReadOnly="True" VerticalScrollBarVisibility="Auto" TextWrapping="WrapWithOverflow" />
+        <TabControl Margin="22,163,35,0" Name="tabControl1" Height="100" VerticalAlignment="Top" SelectedIndex="1">
+            <TabItem Header="Words" Name="tabWords" IsEnabled="False">
+                <Grid Height="86">
+                    <TextBox Margin="121,8,0,0" Name="textWords_NumWords" HorizontalAlignment="Left" Width="63" Height="23" VerticalAlignment="Top">10</TextBox>
+                    <Label HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" Width="120" Height="28" VerticalAlignment="Top">Number of words:</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sentence" Name="tabSentence">
+                <Grid>
+                    <TextBox Margin="179,8,0,0" Name="textSentence_MinWords" Height="23.04" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63">4</TextBox>
+                    <Label HorizontalAlignment="Left" Margin="6,6,0,34" Name="label2" Width="167">Minimum number of words:</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Title" Name="tabTitle" IsEnabled="False">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TextBox HorizontalAlignment="Left" Margin="121,8,0,0" Name="textTitle_NumWords" Width="63" Height="23" VerticalAlignment="Top">6</TextBox>
+                    <Label HorizontalAlignment="Left" Margin="6,6,0,0" Name="label3" Width="120" Height="28" VerticalAlignment="Top">Number of words:</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Paragraphs" Name="tabParagraphs" IsEnabled="False">
+                <Grid>
+                    <TextBox Margin="156,8,0,0" Name="textParagraphs_NumParagraphs" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63">3</TextBox>
+                    <Label HorizontalAlignment="Left" Margin="6,6,0,0" Name="label4" Width="159" Height="28" VerticalAlignment="Top">Number of paragraphs:</Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBox Height="23" Margin="111,20.04,29,0" Name="textStatus" VerticalAlignment="Top" IsReadOnly="True">Please click Browse to select a file.</TextBox>
+    </Grid>
+</Window>
